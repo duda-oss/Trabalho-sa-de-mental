@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum Anônimo</title>
+    <link rel="stylesheet" href="aula2.html">
+    <style>
+        body {
+          font-family: Verdana, sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 20px;
+        }
+        h1 {
+          color: #2c3e50;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+          width: 100%;
+          height: 100px;
+          padding: 10px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          resize: none;
+        }
+        button {
+          background-color: #00aaff;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .post {
+          background-color: #e6f7ff;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Fórum Anônimo</h1>
+        <p>Compartilhe suas experiências de forma anônima e encontre apoio na comunidade.</p>
+    
+        <form id="forumForm">
+          <textarea id="mensagem" placeholder="Escreva aqui sua experiência ou desabafo..."></textarea>
+          <button type="submit">Postar Anônimo</button>
+        </form>
+    
+        <div id="posts">
+          <!-- As postagens anônimas aparecerão aqui -->
+        </div>
+      </div>
+    
+      <script>
+        const form = document.getElementById('forumForm');
+        const postsContainer = document.getElementById('posts');
+    
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          const mensagem = document.getElementById('mensagem').value;
+    
+          if (mensagem.trim() !== "") {
+            const post = document.createElement('div');
+            post.classList.add('post');
+            post.textContent = mensagem;
+            postsContainer.prepend(post);
+            document.getElementById('mensagem').value = "";
+          }
+        });
+      </script>
+    </body>
+    </html>
+    
+
+    
+</head>
+<body>
+    
+</body>
+</html>
