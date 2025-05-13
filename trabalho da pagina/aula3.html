@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Bem-Estar</title>
+    <link rel="stylesheet" href="aula3.html">
+    
+</head>
+<body>
+    <style>
+        body {
+          background-color: #b9d1e5;
+          color: #000;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          padding: 20px;
+          max-width: 700px;
+          margin: auto;
+        }
+    
+        h1, h2 {
+          text-align: center;
+        }
+    
+        .question {
+          margin-bottom: 30px;
+          padding: 15px;
+          background-color: #ffffff;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+    
+        .question p {
+          font-size: 16px;
+          font-weight: bold;
+        }
+    
+        label {
+          display: block;
+          margin: 5px 0;
+          font-size: 15px;
+        }
+    
+        input[type="radio"] {
+          margin-right: 10px;
+        }
+    
+        button {
+          background-color: #53728b;
+          color: #000;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 16px;
+          border-radius: 8px;
+        }
+    
+        #resultado {
+          margin-top: 30px;
+          font-weight: bold;
+          text-align: center;
+          padding: 20px;
+          background-color: #c6f2f5;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Como está seu bem-estar mental?</h1>
+      <form id="quizForm">
+        <div class="question">
+          <p>1. Como você tem se sentido emocionalmente nos últimos dias?</p>
+          <label><input type="radio" name="q1" value="3"> Estável e positivo</label>
+          <label><input type="radio" name="q1" value="2"> Um pouco instável, mas lidando</label>
+          <label><input type="radio" name="q1" value="1"> Triste ou ansioso frequentemente</label>
+        </div>
+    
+        <div class="question">
+          <p>2. Você sente que tem apoio emocional de amigos ou familiares?</p>
+          <label><input type="radio" name="q2" value="3"> Sim, sempre</label>
+          <label><input type="radio" name="q2" value="2"> Às vezes</label>
+          <label><input type="radio" name="q2" value="1"> Não, me sinto sozinho(a)</label>
+        </div>
+    
+        <div class="question">
+          <p>3. Como está sua qualidade de sono?</p>
+          <label><input type="radio" name="q3" value="3"> Durmo bem e acordo disposto(a)</label>
+          <label><input type="radio" name="q3" value="2"> Sono irregular ou insuficiente</label>
+          <label><input type="radio" name="q3" value="1"> Tenho muita dificuldade para dormir</label>
+        </div>
+    
+        <div class="question">
+          <p>4. Com que frequência você se sente sobrecarregado(a)?</p>
+          <label><input type="radio" name="q4" value="1"> Quase sempre</label>
+          <label><input type="radio" name="q4" value="2"> De vez em quando</label>
+          <label><input type="radio" name="q4" value="3"> Raramente</label>
+        </div>
+    
+        <div class="question">
+          <p>5. Você costuma praticar atividades que promovem relaxamento ou bem-estar?</p>
+          <label><input type="radio" name="q5" value="3"> Sim, com frequência</label>
+          <label><input type="radio" name="q5" value="2"> Às vezes</label>
+          <label><input type="radio" name="q5" value="1"> Não, quase nunca</label>
+        </div>
+    
+        <div class="question">
+          <p>6. Você sente que está vivendo com propósito ou motivação?</p>
+          <label><input type="radio" name="q6" value="3"> Sim, tenho metas claras</label>
+          <label><input type="radio" name="q6" value="2"> Estou buscando isso</label>
+          <label><input type="radio" name="q6" value="1"> Me sinto perdido(a) ou desmotivado(a)</label>
+        </div>
+    
+        <div class="question">
+          <p>7. Você consegue equilibrar suas responsabilidades com momentos de lazer?</p>
+          <label><input type="radio" name="q7" value="3"> Sim, tenho um bom equilíbrio</label>
+          <label><input type="radio" name="q7" value="2"> Tento, mas é difícil</label>
+          <label><input type="radio" name="q7" value="1"> Não consigo relaxar</label>
+        </div>
+    
+        <div style="text-align:center">
+          <button type="submit">Ver Resultado</button>
+        </div>
+      </form>
+    
+      <div id="resultado"></div>
+
+      <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+          event.preventDefault();
+          const form = event.target;
+          let total = 0;
+      
+          for (let i = 1; i <= 7; i++) {
+            const selected = form["q" + i].value;
+            if (!selected) {
+              alert("Por favor, responda todas as perguntas.");
+              return;
+            }
+            total += parseInt(selected);
+          }
+      
+          let resultadoText = "";
+      
+          if (total >= 18) {
+            resultadoText = "Seu bem-estar está excelente! Continue valorizando sua saúde mental e emocional.";
+          } else if (total >= 13) {
+            resultadoText = "Você está em um caminho positivo, mas há espaço para melhorias. Tire um tempo para cuidar de si mesmo.";
+          } else {
+            resultadoText = "Seu bem-estar pode estar comprometido. Busque apoio e lembre-se: pedir ajuda é um ato de coragem.";
+          }
+      
+          const resultadoDiv = document.getElementById("resultado");
+          resultadoDiv.innerText = resultadoText;
+      
+         
+          setTimeout(() => {
+            resultadoDiv.innerText = "";  
+            form.reset(); 
+          }, 6000);
+        });
+      </script>
+    
+</body>
+</html>
