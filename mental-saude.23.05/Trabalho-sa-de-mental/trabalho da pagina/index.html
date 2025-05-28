@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Apoio à Saúde Mental</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <img id="Logo" src="download (3).jpg" alt="Logo do Portal">
+        <nav>
+            <a href="#Home"><i class="fas fa-home"></i> Home</a>
+            <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+            <a href="#teste"><i class="fas fa-vial"></i> Teste</a>
+        </nav>
+    </header>
+
+    <section id="Home" class="hero">
+        <div class="hero-content">
+            <h1>Portal de Apoio à Saúde Mental!</h1>
+            <p>Um espaço seguro e acolhedor para trabalhadores cuidarem da mente.</p>
+            <img src="/gif.gif" alt="Animação de apoio" class="hero-gif">
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="card" id="artigos">
+            <h2>Artigos e Dicas</h2>
+            <p>Descubra como melhorar seu bem-estar mental e emocional.</p>
+            <button onclick="window.location.href='aula.html'">Fazer Teste</button>
+        </div>
+
+        <div class="card" id="forum">
+            <h2>Fórum Anônimo</h2>
+            <p>Compartilhe suas experiências e receba apoio da comunidade.</p>
+            <button onclick="window.location.href='aula2.html'">Fazer Teste</button>
+        </div>
+
+        <div class="card" id="teste">
+            <h2>Teste de Bem-Estar</h2>
+            <p>Veja como está seu nível de estresse e receba orientações.</p>
+            <button onclick="window.location.href='aula3.html'">Fazer Teste</button>
+        </div>
+    </main>
+
+    <!-- Botão de voltar para a página inicial -->
+    <a href="index.html" class="back-home">&#8592;</a>
+
+    <style>
+        .back-home {
+            position: fixed;
+            top: 10px;
+            left: 5px;
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .back-home:hover {
+            opacity: 0.7;
+        }
+    </style>
+
+
+
+    <footer id="contato">
+        <p>&copy; 2025 Portal de Apoio à Saúde Mental - Contato: <a href="mailto:saudemental176@gmail.com">saudemental176@gmail.com</a></p>
+    </footer>
+    
+</body>
+
+</html>
